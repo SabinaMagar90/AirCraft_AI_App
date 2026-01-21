@@ -8,42 +8,46 @@
 <body>
   <div class="container">
     <h1>Predict Average Speed (avg_mph)</h1>
-    <a href="/" class="link">← Back</a>
+
+    <!-- Back button -->
+    <form action="/" method="get" style="margin-bottom: 20px;">
+      <button type="submit" class="btn">Back</button>
+    </form>
 
     <form method="POST" class="card">
       <label>Average Altitude (ft)</label>
-      <input name="avg_alt" type="number" step="1" required value="30000">
+      <input name="avg_alt" type="number" step="1" required value="{{ request.form.get('avg_alt', 30000) }}">
 
       <label>Mean Latitude</label>
-      <input name="mean_lat" type="number" step="0.0001" value="34.1">
+      <input name="mean_lat" type="number" step="0.0001" value="{{ request.form.get('mean_lat', 34.1) }}">
 
       <label>Mean Longitude</label>
-      <input name="mean_long" type="number" step="0.0001" value="-118.2">
+      <input name="mean_long" type="number" step="0.0001" value="{{ request.form.get('mean_long', -118.2) }}">
 
       <label>Log Flight Count</label>
-      <input name="log_flight_count" type="number" step="0.0001" value="1.5">
+      <input name="log_flight_count" type="number" step="0.0001" value="{{ request.form.get('log_flight_count', 1.5) }}">
 
       <label>Manufacturer</label>
       <select name="manufacturer">
-        <option value="UNKNOWN">UNKNOWN</option>
+        <option value="UNKNOWN" {% if request.form.get('manufacturer') == 'UNKNOWN' %}selected{% endif %}>UNKNOWN</option>
         {% for m in manufacturers %}
-          <option value="{{m}}">{{m}}</option>
+          <option value="{{ m }}" {% if request.form.get('manufacturer') == m %}selected{% endif %}>{{ m }}</option>
         {% endfor %}
       </select>
 
       <label>Model (optional)</label>
       <select name="model">
-        <option value="UNKNOWN">UNKNOWN</option>
+        <option value="UNKNOWN" {% if request.form.get('model') == 'UNKNOWN' %}selected{% endif %}>UNKNOWN</option>
         {% for mo in models %}
-          <option value="{{mo}}">{{mo}}</option>
+          <option value="{{ mo }}" {% if request.form.get('model') == mo %}selected{% endif %}>{{ mo }}</option>
         {% endfor %}
       </select>
 
       <label>Registration State</label>
       <select name="reg_state">
-        <option value="UNKNOWN">UNKNOWN</option>
+        <option value="UNKNOWN" {% if request.form.get('reg_state') == 'UNKNOWN' %}selected{% endif %}>UNKNOWN</option>
         {% for s in states %}
-          <option value="{{s}}">{{s}}</option>
+          <option value="{{ s }}" {% if request.form.get('reg_state') == s %}selected{% endif %}>{{ s }}</option>
         {% endfor %}
       </select>
 

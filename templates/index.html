@@ -4,15 +4,78 @@
   <meta charset="utf-8" />
   <title>Aircraft AI App</title>
   <link rel="stylesheet" href="/static/style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 80px auto;
+      background: #fff;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    p {
+      color: #555;
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+
+    ul {
+      text-align: left;
+      color: #555;
+      margin-bottom: 40px;
+      padding-left: 20px;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 25px;
+      background-color: #28a745; /* green */
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .btn:hover {
+      background-color: #218838; /* darker green on hover */
+      transform: translateY(-2px);
+    }
+  </style>
 </head>
 <body>
   <div class="container">
     <h1>Aircraft AI Application</h1>
-    <p>This prototype supports <b>Prediction</b> (avg speed) and <b>Recommendation</b> (similar aircraft).</p>
+    <p>Welcome! This prototype allows you to:</p>
+    <ul>
+      <li><b>Prediction</b> – Predict the average speed of an aircraft.</li>
+      <li><b>Recommendation</b> – Find similar aircraft based on your criteria.</li>
+    </ul>
 
     <div class="nav">
-      <a class="btn" href="/predict">Prediction</a>
-      <a class="btn" href="/recommend">Recommendation</a>
+      <a class="btn" href="/predict">Go to Prediction</a>
+      <a class="btn" href="/recommend">Go to Recommendation</a>
     </div>
   </div>
 </body>
